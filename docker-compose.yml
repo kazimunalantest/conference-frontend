@@ -1,0 +1,36 @@
+version: '3.5'
+
+services:
+
+  conference-frontend:
+    image: conference-frontend:conference-frontend
+    container_name: conference-frontend
+    build:
+      context: .
+      dockerfile: Dockerfile.sh
+    volumes:
+      - '.:/app'
+      - '/app/node_modules'
+    ports:
+      - '3000:3000'
+    environment:
+      - NODE_ENV=development
+
+
+#  conference-frontend:
+#    image: kazimunalan/conferecence-frontend:latest
+#    container_name: conference-frontend
+#	build: ./frontend
+#    command: ["npm", "start"]
+#    volumes:
+#      - ./frontend:/app/frontend
+#      - node-modules:/app/frontend/node_modules
+#    ports:
+#      - "3000:3000"
+#    environment:
+#      - NODE_ENV=development
+
+
+
+
+#       `docker-compose build` or `docker-compose up --build`.
